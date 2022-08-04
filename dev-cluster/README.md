@@ -65,7 +65,7 @@ Select "Token" on the Dashboard UI then copy and paste the entire token you rece
 # Learn Terraform - Provision an EKS Cluster
 
 This code inspired by the repo to the [Provision an EKS Cluster learn guide](https://learn.hashicorp.com/terraform/kubernetes/provision-eks-cluster), containing
-Terraform configuration files to provision an EKS cluster on AWS.
+Terraform configuration files to provision an EKS cluster on AWS. You will need kubectl, awscli. 
 
 ### Get the latest terraform
 
@@ -85,12 +85,22 @@ Terraform configuration files to provision an EKS cluster on AWS.
         Switched terraform to version "0.11.14" 
 
         ➜ tfswitch 0.13.3 
-        Switched terraform to version "0.13.3" 
+        Switched terraform to version "0.13.3"
+
+### Install AWSP - aws profile switcher
+- Install [AWSP](https://github.com/antonbabenko/awsp)
 
 ### Authentication to AWS/Okta
+- Install [gimme-aws-creds](https://github.com/Nike-Inc/gimme-aws-creds)
 - A valid authentication to AWS/Okta is required. If you have gimme-aws-creds or ps-connect installed and configured just login using:
 
-        gimme-aws-creds --profile myprojectname && awsp myprojectname
+        gimme-aws-creds --profile profilename && awsp profilename
+
+### Authentication to AWS/SSO
+- A valid AWS SSO configuration is required. Make sure you have AWSCLI v2+ 
+
+        awsp profilename
+        aws sso login --profile profilename 
 
 ### Initial config for new projects
 

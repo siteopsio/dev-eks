@@ -1,0 +1,7 @@
+**/.terraform/*
+.tfmake
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+.idea/
